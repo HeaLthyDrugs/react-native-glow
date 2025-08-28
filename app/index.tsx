@@ -40,6 +40,10 @@ import { Toggle } from '~/components/nativewindui/Toggle';
 
 import { useColorScheme } from '~/lib/useColorScheme';
 import { useHeaderSearchBar } from '~/lib/useHeaderSearchBar';
+import FirstButton from '~/components/buttons/firstButton';
+import RainbowButton from '~/components/buttons/rainbowButton';
+import OceanSunsetButton from '~/components/buttons/oceanSunsetButton';
+import AppleIntelligenceButton from '~/components/buttons/appleIntelligenceButton';
 
 cssInterop(LegendList, {
   className: 'style',
@@ -135,75 +139,40 @@ let hasRequestedReview = false;
 
 const COMPONENTS: ComponentItem[] = [
   {
-    name: 'Picker',
+    name: 'First Button',
     component: function PickerExample() {
       const { colors } = useColorScheme();
       const [picker, setPicker] = React.useState('blue');
       return (
-        <Picker selectedValue={picker} onValueChange={(itemValue) => setPicker(itemValue)}>
-          <PickerItem
-            label="Red"
-            value="red"
-            color={colors.foreground}
-            style={{
-              backgroundColor: colors.root,
-            }}
-          />
-          <PickerItem
-            label="Blue"
-            value="blue"
-            color={colors.foreground}
-            style={{
-              backgroundColor: colors.root,
-            }}
-          />
-          <PickerItem
-            label="Green"
-            value="green"
-            color={colors.foreground}
-            style={{
-              backgroundColor: colors.root,
-            }}
-          />
-        </Picker>
+        <FirstButton />
       );
     },
   },
 
   {
-    name: 'Date Picker',
+    name: 'Rainbow Button',
     component: function DatePickerExample() {
       const [date, setDate] = React.useState(new Date());
       return (
-        <View className="items-center">
-          <DatePicker
-            value={date}
-            mode="datetime"
-            onChange={(ev) => {
-              setDate(new Date(ev.nativeEvent.timestamp));
-            }}
-          />
-        </View>
+        <RainbowButton />
       );
     },
   },
 
   {
-    name: 'Slider',
+    name: 'Ocean Sunset Button',
     component: function SliderExample() {
       const [sliderValue, setSliderValue] = React.useState(0.5);
-      return <Slider value={sliderValue} onValueChange={setSliderValue} />;
+      return <OceanSunsetButton />;
     },
   },
 
   {
-    name: 'Toggle',
+    name: 'Apple Intelligence Button',
     component: function ToggleExample() {
       const [switchValue, setSwitchValue] = React.useState(true);
       return (
-        <View className="items-center">
-          <Toggle value={switchValue} onValueChange={setSwitchValue} />
-        </View>
+        <AppleIntelligenceButton />
       );
     },
   },
